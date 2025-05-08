@@ -1,0 +1,14 @@
+.chapter-card{
+    align-items: center;
+}
+.chapter-title{
+    font-weight: 500;
+    flex-grow: 3;
+    overflow-x: hidden;
+}
+.author-button{
+    border: none;
+    border-radius: 50%;
+    color: #000;
+    cursor: pointer;
+}

@@ -1,0 +1,17 @@
+.main-content{
+    margin-left: calc(15vw + 1rem);
+    margin-top: 10vh;
+    width: calc(100% - 15vw - 1rem);
+    padding-right: 1rem;
+    transition: all 0.3s ease;
+}
+
+.main-content.sidebar-closed {
+    margin-left: 1rem;
+    padding-right: 0;
+    width: calc(100% - 2rem);
+}
+
+.container {
+    transition: all 0.3s ease;
+}

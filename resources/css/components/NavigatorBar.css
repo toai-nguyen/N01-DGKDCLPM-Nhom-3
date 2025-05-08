@@ -1,0 +1,17 @@
+.navigator-bar {
+    height: 10vh;
+    width: 85vw;
+    left: 15vw;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navigator-bar.sidebar-closed {
+    width: 100vw;
+    left: 0;
+}
+
+.text-input {
+    padding-right: 4vw;
+    margin-right: 2vw;
+}
