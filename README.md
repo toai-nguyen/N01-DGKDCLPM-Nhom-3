@@ -27,3 +27,8 @@ Các thành phần người dùng bao gồm: Độc giả, quản trị viên, t
 - Khả năng mở rộng và tích hợp
 - Đảm bảo bảo mật và hiệu quả
 - Ứng dụng các công nghệ và kỹ thuật hiệu quả
+
+## Kiểm thử
+- Black-box testing: Các chức năng đăng nhập / đăng ký, CRUD truyện, CRUD chapter, phân quyền reader/author, tìm kiếm
+- White-box testing: Unit test, exception, bao phủ điều iện, vòng lặp
+- Non-functional testing: Performance, Load, Stress, Security, Responsive.
