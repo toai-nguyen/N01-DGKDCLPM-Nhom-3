@@ -1,6 +1,6 @@
 .navigator-bar {
     height: 10vh;
-    width: 85vw;
+    width: 80vw;
     left: 15vw;
     z-index: 1000;
     transition: all 0.3s ease;
@@ -14,4 +14,36 @@
 .text-input {
     padding-right: 4vw;
     margin-right: 2vw;
+}
+
+/* Media queries cho responsive */
+@media (max-width: 1024px) {
+    .navigator-bar {
+        width: 75vw;
+        left: 25vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .navigator-bar {
+        width: 100vw;
+        left: 0;
+    }
+    
+    .text-input {
+        padding-right: 2vw;
+        margin-right: 1vw;
+    }
+}
+
+@media (max-width: 640px) {
+    .navigator-bar {
+        width: 100vw;
+        left: 0;
+    }
+    
+    .text-input {
+        padding-right: 1vw;
+        margin-right: 0.5vw;
+    }
 }

@@ -1,17 +1,70 @@
-.main-content{
-    margin-left: calc(15vw + 1rem);
+.main-content {
+    flex: 1;
     margin-top: 10vh;
-    width: calc(100% - 15vw - 1rem);
-    padding-right: 1rem;
+    padding: 0 1rem;
     transition: all 0.3s ease;
+    min-width: 0;
+    overflow-x: hidden;
+    /* margin-left: 20vw; Sử dụng viewport width thay vì pixel cố định */
 }
 
 .main-content.sidebar-closed {
-    margin-left: 1rem;
-    padding-right: 0;
-    width: calc(100% - 2rem);
+    /* margin-left: 0; Không có margin khi sidebar đóng */
+    padding: 0 1rem;
+    width: 100vw;
 }
 
 .container {
     transition: all 0.3s ease;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin-left: 15vw; /* Sử dụng viewport width thay vì pixel cố định */
+}
+
+.container.sidebar-closed {
+    margin-left: 0; /* Không có margin khi sidebar đóng */
+}
+
+/* Layout chính */
+.flex.flex-row {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Media queries cho responsive */
+@media (max-width: 1024px) {
+    .main-content {
+        margin-left: 25vw; /* Tăng margin cho màn hình nhỏ hơn */
+    }
+    
+    .container {
+        margin-left: 25vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0; /* Không có margin trên mobile */
+        padding: 0 0.5rem;
+    }
+    
+    .container {
+        margin-left: 0;
+    }
+    
+    .main-content.sidebar-closed {
+        padding: 0 0.5rem;
+    }
+}
+
+/* Đảm bảo không có overflow horizontal */
+@media (max-width: 640px) {
+    .main-content,
+    .container {
+        margin-left: 0;
+        padding: 0 0.25rem;
+    }
 }

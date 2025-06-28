@@ -1,16 +1,49 @@
 .sidebar-container {
     position: fixed;
-    top: 0;
     left: 0;
+    top: 0;
     height: 100vh;
-    width: 15vw;
+    width: 15vw; /* Sử dụng viewport width thay vì pixel cố định */
+    /* min-width: 200px;
+    max-width: 300px;  */
+    flex-shrink: 0;
     background: rgb(235, 235, 235);
-    padding: 2vw 2vh;
-    transition: transform 0.3s ease;
+    padding: 2rem 1rem;
+    transition: width 0.3s ease, transform 0.3s ease;
     z-index: 1001;
+    overflow-y: auto; /* Cho phép scroll nội dung sidebar nếu cần */
+}
+
+/* Thêm class để ẩn sidebar */
+.sidebar-container.closed {
+    transform: translateX(-100%);
 }
 
 .bg-genshin-green {
     color: white;
     background-color: rgb(147, 213, 106);
+}
+
+/* Media queries cho responsive */
+@media (max-width: 1024px) {
+    .sidebar-container {
+        width: 25vw;
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar-container {
+        width: 80vw; /* Chiếm phần lớn màn hình trên mobile */
+        max-width: 300px;
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 640px) {
+    .sidebar-container {
+        width: 100vw; /* Chiếm toàn bộ màn hình trên mobile nhỏ */
+        max-width: none;
+        min-width: none;
+    }
 }
