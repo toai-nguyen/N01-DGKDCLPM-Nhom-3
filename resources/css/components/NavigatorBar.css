@@ -1,6 +1,6 @@
 .navigator-bar {
     height: 10vh;
-    width: 80vw;
+    width: 85vw;
     left: 15vw;
     z-index: 1000;
     transition: all 0.3s ease;
