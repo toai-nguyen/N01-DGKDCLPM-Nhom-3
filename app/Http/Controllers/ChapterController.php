@@ -28,7 +28,8 @@ class ChapterController extends Controller
     public function create($novel_id)
     {
         //find novel by id
-        $novel = Novel::find($novel_id);
+        Log::info('Creating chapter for novel ID: ' . $novel_id);
+        $novel = Novel::where('id',$novel_id)->first();
         if (!$novel) {
             return redirect()->route('home')->with('error', 'Novel not found.');
         }
@@ -37,9 +38,11 @@ class ChapterController extends Controller
             ->orderBy('chapter_number', 'desc')
             ->first();
         $chapter_number = $lastChapter ? $lastChapter->chapter_number : 1;
+        $next_chapter = $chapter_number + 1;
+        Log::info('Last chapter number: ' . $chapter_number);
         // return only chapter number
         return Inertia::render('Content/CreateChapter', [
-            'chapterNumber' => $chapter_number,
+            'chapterNumber' => $next_chapter,
             'novelId' => $novel_id,
         ]);
     }
@@ -53,7 +56,7 @@ class ChapterController extends Controller
             'title' => 'required',
             'content' => 'required',
             'novel_id' => 'required',
-            'chapter_number' => 'required|numeric',
+            'chapter_number' => 'required|integer|min:1',
         ]);
         // Log::info($validated);
         $existingChapter = Chapter::where('novel_id', $validated['novel_id'])
