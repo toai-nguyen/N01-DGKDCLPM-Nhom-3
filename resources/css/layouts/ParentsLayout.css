@@ -5,6 +5,7 @@
     transition: all 0.3s ease;
     min-width: 0;
     overflow-x: hidden;
+    width: 85vw; /* Sử dụng viewport width thay vì pixel cố định */
     /* margin-left: 20vw; Sử dụng viewport width thay vì pixel cố định */
 }
 
