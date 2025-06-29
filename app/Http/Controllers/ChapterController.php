@@ -38,11 +38,9 @@ class ChapterController extends Controller
             ->orderBy('chapter_number', 'desc')
             ->first();
         $chapter_number = $lastChapter ? $lastChapter->chapter_number : 1;
-        $next_chapter = $chapter_number + 1;
-        Log::info('Last chapter number: ' . $chapter_number);
         // return only chapter number
         return Inertia::render('Content/CreateChapter', [
-            'chapterNumber' => $next_chapter,
+            'chapterNumber' => $chapter_number == 1 ? 1 : ($chapter_number + 1),
             'novelId' => $novel_id,
         ]);
     }
@@ -68,7 +66,8 @@ class ChapterController extends Controller
                 'chapter_number' => 'Chapter number already exists for this novel.'
             ]);
         }
-        $novel = Novel::find($validated['novel_id']);
+        $novel = Novel::where('id',$validated['novel_id'])
+            ->first();
         $chapter = Chapter::create([
             'title' => $validated['title'],
             'content' => $validated['content'],

@@ -17,7 +17,7 @@ export default function CreateChapter({ chapterNumber, novelId }) {
         });
     };
     // Tính toán tiêu đề cho trang tạo chapter
-    const pageTitle = chapterNumber === 0 
+    const pageTitle = chapterNumber === 1 
         ? "Create First Chapter" 
         : `Create Chapter ${chapterNumber}`;
     return (
