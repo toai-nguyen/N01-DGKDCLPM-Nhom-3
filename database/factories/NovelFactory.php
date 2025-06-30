@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Novel;
+use App\Models\User;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Novel>
  */
@@ -29,8 +30,11 @@ class NovelFactory extends Factory
             'https://res.cloudinary.com/dvomghpsu/image/upload/v1739376003/novel_project/cover_image/cover_image_sample_7.webp',
         ];
         $index = rand(0, 7);
+        // get random user_id from users database table
+        $user_ids = User::pluck('id')->toArray();
+        $author_id = $user_ids[array_rand($user_ids)];
         return [
-            'author_id' => rand(1, 100),
+            'author_id' => $author_id,
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
             'image_url' => $img_urls[$index],

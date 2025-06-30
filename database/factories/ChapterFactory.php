@@ -20,7 +20,7 @@ class ChapterFactory extends Factory
             'novel_id' => '2',
             'author_id' => '59',
             'title' => $this->faker->sentence(),
-            'content' => $this->faker->paragraphs(5, true),
+            'content' => $this->faker->paragraphs(100, true),
             'chapter_number' => $this->faker->unique->numberBetween(1, 10),
         ];
     }

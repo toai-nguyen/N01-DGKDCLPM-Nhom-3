@@ -13,13 +13,14 @@ class PasswordUpdateTest extends TestCase
 
     public function test_password_can_be_updated(): void
     {
+        /** @var User $user*/
         $user = User::factory()->create();
 
         $response = $this
             ->actingAs($user)
             ->from('/profile')
             ->put('/password', [
-                'current_password' => 'password',
+                'current_password' => '123456789',
                 'password' => 'new-password',
                 'password_confirmation' => 'new-password',
             ]);
@@ -33,6 +34,7 @@ class PasswordUpdateTest extends TestCase
 
     public function test_correct_password_must_be_provided_to_update_password(): void
     {
+        /** @var User $user */
         $user = User::factory()->create();
 
         $response = $this
