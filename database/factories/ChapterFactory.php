@@ -17,11 +17,13 @@ class ChapterFactory extends Factory
     public function definition(): array
     {
         return [
-            'novel_id' => '2',
-            'author_id' => '59',
+            'novel_id' => \App\Models\Novel::factory(), // for test
+            'author_id' => \App\Models\User::factory(), // for test
+            // 'novel_id' => 2, // Example ID, replace with actual logic if needed
+            // 'author_id' => 59, // Example ID, replace with actual logic if needed
             'title' => $this->faker->sentence(),
-            'content' => $this->faker->paragraphs(100, true),
-            'chapter_number' => $this->faker->unique->numberBetween(1, 10),
+            'content' => $this->faker->paragraphs(10, true),
+            'chapter_number' => $this->faker->numberBetween(1, 100),
         ];
     }
 }
